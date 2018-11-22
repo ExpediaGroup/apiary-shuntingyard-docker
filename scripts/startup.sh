@@ -4,9 +4,7 @@
 
 SHUNTING_YARD_HOME=/opt/shunting-yard
 
-[[ ! -z $SERVER_YAML ]] && echo $SERVER_YAML|base64 -d > ${SHUNTING_YARD_HOME}/conf/waggle-dance-server.yml
-
-[[ ! -z $FEDERATION_YAML ]] && echo $FEDERATION_YAML|base64 -d > ${SHUNTING_YARD_HOME}/conf/waggle-dance-federation.yml
+[[ ! -z $SHUNTINGYARD_CONFIG_YAML ]] && echo $SHUNTINGYARD_CONFIG_YAML|base64 -d > ${SHUNTING_YARD_HOME}/conf/shunting-yard-config.yml
 
 [[ -z $HEAPSIZE ]] && export HEAPSIZE=1024
 
@@ -46,11 +44,6 @@ EOF
 
 core-site-template > $HADOOP_HOME/etc/hadoop/core-site.xml
 
-mv $HIVE_LIB/hive-exec-*.jar $HIVE_LIB/hive-exec.jar
-mv $HIVE_LIB/hive-metastore-*.jar $HIVE_LIB/hive-metastore.jar
+source "${SHUNTING_YARD_HOME}"/conf/shunting-yard-variables.conf
 
-circus-train*/bin/circus-train.sh --config=$CIRCUS_TRAIN_CONF
-
-source "${SHUNTING_YARD_HOME}"/service/waggle-dance-core-latest-exec.conf
-
-exec java -jar "${SHUNTING_YARD_HOME}"/service/waggle-dance-core-latest-exec.jar  $JAVA_OPTS $RUN_ARGS
+exec ${SHUNTING_YARD_HOME}/bin/replicator.sh $RUN_ARGS

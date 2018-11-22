@@ -32,7 +32,7 @@ RUN yum -y update && \
     hive \
   && yum clean all \
   && rm -rf /var/cache/yum
-  
+
 ENV JAVA_HOME /usr/lib/jvm/jre-1.8.0-openjdk/
 ENV PATH $PATH:$JAVA_HOME/bin
 
@@ -61,12 +61,12 @@ ENV PATH $PATH:$HIVE_HOME/bin
 #     hdfs dfs -mkdir -p /user/hive/warehouse && \
 #     hdfs dfs -chmod g+w /tmp && \
 #     hdfs dfs -chmod g+w /user/hive/warehouse
-# 
+#
 # RUN $HIVE_HOME/bin/schematool -dbType derby -initSchema
 
 ENV HIVE_LIB /usr/lib/hive/lib/
 ENV HCAT_LIB /usr/local/hive/hcatalog/share/hcatalog/
-    
+
 # RUN mv $HIVE_LIB/hive-exec-*.jar $HIVE_LIB/hive-exec.jar && \
 #     mv $HIVE_LIB/hive-metastore-*.jar $HIVE_LIB/hive-metastore.jar
 
@@ -78,8 +78,9 @@ RUN mkdir -p /opt/circus-train
 RUN tar -vzxf /tmp/shunting-yard-binary-"${SHUNTING_YARD_VERSION}"-bin.tgz -C /opt/shunting-yard/ --strip-components=1
 RUN tar -vzxf /tmp/circus-train-"${CIRCUS_TRAIN_VERSION}"-bin.tgz -C /opt/circus-train/ --strip-components=1
 
-COPY files/shunting-yard-config.yml "${SHUNTING_YARD_HOME}"/conf/
+COPY files/shunting-yard-variables.conf "${SHUNTING_YARD_HOME}"/conf/
+COPY scripts/startup.sh "${SHUNTING_YARD_HOME}"
 
-ENTRYPOINT ["/bin/sh", "-c", "exec ${SHUNTING_YARD_HOME}/bin/replicator.sh"]
+ENTRYPOINT ["/bin/sh", "-c", "exec ${SHUNTING_YARD_HOME}/startup.sh"]
 
 EXPOSE 9083
