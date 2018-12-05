@@ -4,7 +4,7 @@
 
 SHUNTING_YARD_HOME=/opt/shunting-yard
 
-[[ ! -z $SHUNTINGYARD_CONFIG_YAML ]] && echo $SHUNTINGYARD_CONFIG_YAML|base64 -d > ${SHUNTING_YARD_HOME}/conf/shunting-yard-config.yml
+[[ ! -z $SHUNTINGYARD_CONFIG_YAML ]] && echo "$SHUNTINGYARD_CONFIG_YAML"|base64 -d > ${SHUNTING_YARD_HOME}/conf/shunting-yard-config.yml
 
 [[ -z $HEAPSIZE ]] && export HEAPSIZE=1024
 

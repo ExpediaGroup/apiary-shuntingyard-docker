@@ -81,6 +81,6 @@ RUN tar -vzxf /tmp/circus-train-"${CIRCUS_TRAIN_VERSION}"-bin.tgz -C /opt/circus
 COPY files/shunting-yard-variables.conf "${SHUNTING_YARD_HOME}"/conf/
 COPY scripts/startup.sh "${SHUNTING_YARD_HOME}"
 
-ENTRYPOINT ["/bin/sh", "-c", "exec ${SHUNTING_YARD_HOME}/startup.sh"]
+ENTRYPOINT ["/bin/bash", "-c", "exec ${SHUNTING_YARD_HOME}/startup.sh"]
 
 EXPOSE 9083
