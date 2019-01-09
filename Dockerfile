@@ -10,7 +10,7 @@ ENV HADOOP_VERSION=${HADOOP_VERSION}
 ENV HIVE_VERSION=${HIVE_VERSION}
 
 ENV JAVA_VERSION 1.8.0
-ENV SHUNTING_YARD_VERSION 0.0.3
+ENV SHUNTING_YARD_VERSION 0.0.4
 ENV CIRCUS_TRAIN_VERSION 12.1.0
 ENV SHUNTING_YARD_HOME /opt/shunting-yard
 ENV CIRCUS_TRAIN_HOME /opt/circus-train
@@ -69,6 +69,8 @@ ENV HCAT_LIB /usr/local/hive/hcatalog/share/hcatalog/
 
 # RUN mv $HIVE_LIB/hive-exec-*.jar $HIVE_LIB/hive-exec.jar && \
 #     mv $HIVE_LIB/hive-metastore-*.jar $HIVE_LIB/hive-metastore.jar
+
+# COPY shunting-yard-binary-0.0.3-SNAPSHOT-bin.tgz /tmp/shunting-yard-binary-"${SHUNTING_YARD_VERSION}"-bin.tgz
 
 RUN wget http://search.maven.org/remotecontent?filepath=com/hotels/shunting-yard-binary/"${SHUNTING_YARD_VERSION}"/shunting-yard-binary-"${SHUNTING_YARD_VERSION}"-bin.tgz -O /tmp/shunting-yard-binary-"${SHUNTING_YARD_VERSION}"-bin.tgz
 RUN wget http://search.maven.org/remotecontent?filepath=com/hotels/circus-train/"${CIRCUS_TRAIN_VERSION}"/circus-train-"${CIRCUS_TRAIN_VERSION}"-bin.tgz -O /tmp/circus-train-"${CIRCUS_TRAIN_VERSION}"-bin.tgz
