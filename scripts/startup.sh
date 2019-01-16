@@ -38,6 +38,11 @@ cat << EOF
     <name>fs.s3a.impl</name>
     <value>org.apache.hadoop.fs.s3a.S3AFileSystem</value>
   </property>
+
+  <property>
+    <name>fs.s3a.aws.credentials.provider</name>
+    <value>com.amazonaws.auth.EC2ContainerCredentialsProviderWrapper</value>
+  </property>
 </configuration>
 EOF
 }
@@ -45,5 +50,10 @@ EOF
 core-site-template > $HADOOP_HOME/etc/hadoop/core-site.xml
 
 source "${SHUNTING_YARD_HOME}"/conf/shunting-yard-variables.conf
+
+echo "********HELLO WORLD: AWS_CONTAINER_CREDENTIALS_RELATIVE_URI = $AWS_CONTAINER_CREDENTIALS_RELATIVE_URI ****"
+curl 169.254.170.2$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
+
+cat $HADOOP_HOME/etc/hadoop/core-site.xml
 
 exec ${SHUNTING_YARD_HOME}/bin/replicator.sh $RUN_ARGS
