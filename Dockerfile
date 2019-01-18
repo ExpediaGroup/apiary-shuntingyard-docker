@@ -36,41 +36,14 @@ RUN yum -y update && \
 ENV JAVA_HOME /usr/lib/jvm/jre-1.8.0-openjdk/
 ENV PATH $PATH:$JAVA_HOME/bin
 
-# Hadoop
-# RUN curl -s "https://archive.apache.org/dist/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz" | tar -xz -C /usr/local && \
-#     cd /usr/local && \
-#     ln -s ./hadoop-${HADOOP_VERSION} hadoop
 ENV HADOOP_HOME /usr/lib/hadoop
 ENV PATH $PATH:$HADOOP_HOME/bin
 
-# Get s3 dependencies for Hadoop
-# RUN cd $HADOOP_HOME/share/hadoop/common/lib/ && \
-#     curl -s -LO "http://central.maven.org/maven2/org/apache/hadoop/hadoop-aws/${HADOOP_VERSION}/hadoop-aws-${HADOOP_VERSION}.jar" && \
-#     cp $HADOOP_HOME/share/hadoop/tools/lib/aws-java-sdk*.jar $HADOOP_HOME/share/hadoop/common/lib && \
-#     cp -f $HADOOP_HOME/share/hadoop/tools/lib/jackson* $HADOOP_HOME/share/hadoop/common/lib && \
-#     cp -f $HADOOP_HOME/share/hadoop/tools/lib/joda* $HADOOP_HOME/share/hadoop/common/lib
-
-# Hive
-# RUN curl -s "https://archive.apache.org/dist/hive/hive-${HIVE_VERSION}/apache-hive-${HIVE_VERSION}-bin.tar.gz" | tar -xz -C /usr/local && \
-#     cd /usr/local && \
-#     ln -s apache-hive-${HIVE_VERSION}-bin hive
 ENV HIVE_HOME /usr/lib/hive
 ENV PATH $PATH:$HIVE_HOME/bin
 
-# RUN hdfs dfs -mkdir -p /tmp && \
-#     hdfs dfs -mkdir -p /user/hive/warehouse && \
-#     hdfs dfs -chmod g+w /tmp && \
-#     hdfs dfs -chmod g+w /user/hive/warehouse
-#
-# RUN $HIVE_HOME/bin/schematool -dbType derby -initSchema
-
 ENV HIVE_LIB /usr/lib/hive/lib/
 ENV HCAT_LIB /usr/local/hive/hcatalog/share/hcatalog/
-
-# RUN mv $HIVE_LIB/hive-exec-*.jar $HIVE_LIB/hive-exec.jar && \
-#     mv $HIVE_LIB/hive-metastore-*.jar $HIVE_LIB/hive-metastore.jar
-
-# COPY shunting-yard-binary-0.0.3-SNAPSHOT-bin.tgz /tmp/shunting-yard-binary-"${SHUNTING_YARD_VERSION}"-bin.tgz
 
 RUN wget https://oss.sonatype.org/content/repositories/releases/com/hotels/shunting-yard-binary/0.0.5/shunting-yard-binary-0.0.5-bin.tgz -O /tmp/shunting-yard-binary-"${SHUNTING_YARD_VERSION}"-bin.tgz
 RUN wget https://oss.sonatype.org/content/repositories/snapshots/com/hotels/circus-train/13.2.1-SNAPSHOT/circus-train-13.2.1-20190116.130320-4-bin.tgz -O /tmp/circus-train-"${CIRCUS_TRAIN_VERSION}"-bin.tgz

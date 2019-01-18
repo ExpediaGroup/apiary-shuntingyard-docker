@@ -51,9 +51,4 @@ core-site-template > $HADOOP_HOME/etc/hadoop/core-site.xml
 
 source "${SHUNTING_YARD_HOME}"/conf/shunting-yard-variables.conf
 
-echo "********HELLO WORLD: AWS_CONTAINER_CREDENTIALS_RELATIVE_URI = $AWS_CONTAINER_CREDENTIALS_RELATIVE_URI ****"
-curl 169.254.170.2$AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
-
-cat $HADOOP_HOME/etc/hadoop/core-site.xml
-
 exec ${SHUNTING_YARD_HOME}/bin/replicator.sh $RUN_ARGS
