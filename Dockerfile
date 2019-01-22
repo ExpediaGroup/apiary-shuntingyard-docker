@@ -10,8 +10,8 @@ ENV HADOOP_VERSION=${HADOOP_VERSION}
 ENV HIVE_VERSION=${HIVE_VERSION}
 
 ENV JAVA_VERSION 1.8.0
-ENV SHUNTING_YARD_VERSION 0.0.5
-ENV CIRCUS_TRAIN_VERSION 13.2.1
+ENV SHUNTING_YARD_VERSION 0.0.6
+ENV CIRCUS_TRAIN_VERSION 13.2.0
 ENV SHUNTING_YARD_HOME /opt/shunting-yard
 ENV CIRCUS_TRAIN_HOME /opt/circus-train
 
@@ -45,8 +45,8 @@ ENV PATH $PATH:$HIVE_HOME/bin
 ENV HIVE_LIB /usr/lib/hive/lib/
 ENV HCAT_LIB /usr/local/hive/hcatalog/share/hcatalog/
 
-RUN wget https://oss.sonatype.org/content/repositories/releases/com/hotels/shunting-yard-binary/0.0.5/shunting-yard-binary-0.0.5-bin.tgz -O /tmp/shunting-yard-binary-"${SHUNTING_YARD_VERSION}"-bin.tgz
-RUN wget https://oss.sonatype.org/content/repositories/snapshots/com/hotels/circus-train/13.2.1-SNAPSHOT/circus-train-13.2.1-20190116.130320-4-bin.tgz -O /tmp/circus-train-"${CIRCUS_TRAIN_VERSION}"-bin.tgz
+RUN wget http://search.maven.org/remotecontent?filepath=com/hotels/shunting-yard-binary/"${SHUNTING_YARD_VERSION}"/shunting-yard-binary-"${SHUNTING_YARD_VERSION}"-bin.tgz -O /tmp/shunting-yard-binary-"${SHUNTING_YARD_VERSION}"-bin.tgz
+RUN wget http://search.maven.org/remotecontent?filepath=com/hotels/circus-train/"${CIRCUS_TRAIN_VERSION}"/circus-train-"${CIRCUS_TRAIN_VERSION}"-bin.tgz -O /tmp/circus-train-"${CIRCUS_TRAIN_VERSION}"-bin.tgz
 
 RUN mkdir -p /opt/shunting-yard
 RUN mkdir -p /opt/circus-train
