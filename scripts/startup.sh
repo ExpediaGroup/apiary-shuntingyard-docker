@@ -8,12 +8,6 @@ SHUNTING_YARD_HOME=/opt/shunting-yard
 
 [[ -z $HEAPSIZE ]] && export HEAPSIZE=1024
 
-if [[ -n $BASTION_SSH_KEY_ARN ]] ; then
-  mkdir -p /root/.ssh
-  touch /root/.ssh/known_hosts
-  aws secretsmanager get-secret-value --secret-id ${BASTION_SSH_KEY_ARN}|jq .SecretString -r|jq .private_key -r| base64 -d > /root/.ssh/bastion_ssh
-fi
-
 #!/bin/bash
 
 core-site-template() {
