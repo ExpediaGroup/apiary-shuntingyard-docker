@@ -53,9 +53,10 @@ RUN mkdir -p /opt/circus-train
 RUN tar -vzxf /tmp/shunting-yard-binary-"${SHUNTING_YARD_VERSION}"-bin.tgz -C /opt/shunting-yard/ --strip-components=1
 RUN tar -vzxf /tmp/circus-train-"${CIRCUS_TRAIN_VERSION}"-bin.tgz -C /opt/circus-train/ --strip-components=1
 
+RUN rm /tmp/shunting-yard-binary-"${SHUNTING_YARD_VERSION}"-bin.tgz
+RUN rm /tmp/circus-train-"${CIRCUS_TRAIN_VERSION}"-bin.tgz
+
 COPY files/shunting-yard-variables.conf "${SHUNTING_YARD_HOME}"/conf/
 COPY scripts/startup.sh "${SHUNTING_YARD_HOME}"
 
 ENTRYPOINT ["/bin/bash", "-c", "exec ${SHUNTING_YARD_HOME}/startup.sh"]
-
-EXPOSE 9083
