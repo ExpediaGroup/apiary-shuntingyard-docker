@@ -8,8 +8,6 @@ SHUNTING_YARD_HOME=/opt/shunting-yard
 
 [[ -z $HEAPSIZE ]] && export HEAPSIZE=1024
 
-#!/bin/bash
-
 core-site-template() {
 cat << EOF
 <configuration>
