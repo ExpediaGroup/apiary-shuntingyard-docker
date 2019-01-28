@@ -10,4 +10,4 @@ SHUNTING_YARD_HOME=/opt/shunting-yard
 
 source "${SHUNTING_YARD_HOME}"/conf/shunting-yard-variables.conf
 
-exec ${SHUNTING_YARD_HOME}/bin/replicator.sh $RUN_ARGS
+exec ${SHUNTING_YARD_HOME}/bin/replicator.sh $JAVA_OPTS $RUN_ARGS
