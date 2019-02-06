@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [0.0.1] - TBD
+## [1.1.0] - TBD
+### Added
+- An option (`--ct-config`) to pass graphite configuration to Shunting Yard.
+
+## [1.0.0] - 2019-02-06
 ### Added
 - Docker Image for Shunting Yard
