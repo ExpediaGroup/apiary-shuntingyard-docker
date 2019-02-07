@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Added
 - An option (`--ct-config`) to pass graphite configuration to Shunting Yard.
 
+### Changed
+- Shunting Yard version to 0.0.8 (was 0.0.7)
+
 ## [1.0.0] - 2019-02-06
 ### Added
 - Docker Image for Shunting Yard
