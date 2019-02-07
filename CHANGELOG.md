@@ -5,7 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ## [1.1.0] - TBD
 ### Added
-- An option (`--ct-config`) to pass graphite configuration to Shunting Yard.
+- An option (`--ct-config`) to pass Graphite configuration to Shunting Yard.
 
 ### Changed
 - Shunting Yard version to 0.0.8 (was 0.0.7)
