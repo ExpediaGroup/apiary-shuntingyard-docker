@@ -5,6 +5,7 @@
 SHUNTING_YARD_HOME=/opt/shunting-yard
 
 [[ ! -z $SHUNTINGYARD_CONFIG_YAML ]] && echo "$SHUNTINGYARD_CONFIG_YAML"|base64 -d > ${SHUNTING_YARD_HOME}/conf/shunting-yard-config.yml
+[[ ! -z $CT_COMMON_CONFIG_YAML ]] && echo "$CT_COMMON_CONFIG_YAML"|base64 -d > ${SHUNTING_YARD_HOME}/conf/ct-common-config.yml
 
 [[ -z $HEAPSIZE ]] && export HEAPSIZE=1024
 
