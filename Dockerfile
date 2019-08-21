@@ -47,7 +47,7 @@ ENV HCAT_LIB /usr/local/hive/hcatalog/share/hcatalog/
 
 RUN mkdir -p /opt/shunting-yard && mkdir -p /opt/circus-train
 
-RUN wget http://search.maven.org/remotecontent?filepath=com/hotels/shunting-yard-binary/"${SHUNTING_YARD_VERSION}"/shunting-yard-binary-"${SHUNTING_YARD_VERSION}"-bin.tgz -O /tmp/shunting-yard-binary-"${SHUNTING_YARD_VERSION}"-bin.tgz && \
+RUN wget http://search.maven.org/remotecontent?filepath=com/expediagroup/shunting-yard-binary/"${SHUNTING_YARD_VERSION}"/shunting-yard-binary-"${SHUNTING_YARD_VERSION}"-bin.tgz -O /tmp/shunting-yard-binary-"${SHUNTING_YARD_VERSION}"-bin.tgz && \
     tar -vzxf /tmp/shunting-yard-binary-"${SHUNTING_YARD_VERSION}"-bin.tgz -C /opt/shunting-yard/ --strip-components=1 && \
     rm /tmp/shunting-yard-binary-"${SHUNTING_YARD_VERSION}"-bin.tgz
 
