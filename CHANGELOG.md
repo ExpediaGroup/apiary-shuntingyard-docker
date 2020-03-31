@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] - 2020-03-31
+### Added
+- Log4j XML for internal Circus Train instance.
+
 ## [2.1.0] - 2020-01-16
 ### Updated
 - Shunting Yard version to 3.1.0 (was 3.0.1).
