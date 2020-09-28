@@ -11,7 +11,7 @@ ENV HIVE_VERSION=${HIVE_VERSION}
 
 ENV JAVA_VERSION 1.8.0
 ENV SHUNTING_YARD_VERSION 3.2.0-SNAPSHOT
-ENV CIRCUS_TRAIN_VERSION 15.0.0
+ENV CIRCUS_TRAIN_VERSION 16.3.0
 ENV SHUNTING_YARD_HOME /opt/shunting-yard
 ENV CIRCUS_TRAIN_HOME /opt/circus-train
 
@@ -47,7 +47,7 @@ ENV HCAT_LIB /usr/local/hive/hcatalog/share/hcatalog/
 
 RUN mkdir -p /opt/shunting-yard && mkdir -p /opt/circus-train
 
-RUN wget http://search.maven.org/remotecontent?filepath=com/expediagroup/shunting-yard-binary/"${SHUNTING_YARD_VERSION}"/shunting-yard-binary-"${SHUNTING_YARD_VERSION}"-bin.tgz -O /tmp/shunting-yard-binary-"${SHUNTING_YARD_VERSION}"-bin.tgz && \
+RUN wget https://oss.sonatype.org/content/repositories/snapshots/com/expediagroup/shunting-yard-binary/3.2.0-SNAPSHOT/shunting-yard-binary-3.2.0-20200924.141027-1-bin.tgz -O /tmp/shunting-yard-binary-"${SHUNTING_YARD_VERSION}"-bin.tgz && \
     tar -vzxf /tmp/shunting-yard-binary-"${SHUNTING_YARD_VERSION}"-bin.tgz -C /opt/shunting-yard/ --strip-components=1 && \
     rm /tmp/shunting-yard-binary-"${SHUNTING_YARD_VERSION}"-bin.tgz
 
