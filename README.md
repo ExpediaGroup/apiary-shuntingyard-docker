@@ -1,4 +1,4 @@
-(Shunting Yard)[https://github.com/ExpediaGroup/shunting-yard] project has been archived. Please reach out to us on [Apiary user group](https://github.com/ExpediaGroup/apiary#contact) if you have a use case for it.
+[Shunting Yard](https://github.com/ExpediaGroup/shunting-yard) project has been archived. Please reach out to us on [Apiary user group](https://github.com/ExpediaGroup/apiary#contact) if you have a use case for it.
 
 # Overview
 
